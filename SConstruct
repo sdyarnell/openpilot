@@ -94,7 +94,12 @@ env = Environment(
 
 # Arch-specific flags and paths
 if arch == "larch64":
-  env.Append(CPPPATH=["#third_party/opencl/include"])
+  env.Append(CPPPATH=[
+    "#third_party/opencl/include",
+    "/usr/local/venv/lib/python3.12/site-packages/capnproto/install/include",
+    "/usr/local/venv/lib/python3.12/site-packages/eigen/install",
+    "/usr/local/venv/lib/python3.12/site-packages/ffmpeg/install/include",
+  ])
   env.Append(LIBPATH=[
     "/usr/local/lib",
     "/system/vendor/lib64",

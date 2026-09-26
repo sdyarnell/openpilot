@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0, '/data/py_extra')
 #!/usr/bin/env python3
 import sys
 import pathlib
