@@ -16,7 +16,13 @@ export VECLIB_MAXIMUM_THREADS=1
 export QCOM_PRIORITY=12
 
 if [ -z "$AGNOS_VERSION" ]; then
-  export AGNOS_VERSION="16"
+  # NOTE: this branch shipped with AGNOS_VERSION=16, but that predates the
+  # AGNOS 18.1+ / raylib 6.0 bump this UI actually needs (see
+  # commaai/openpilot@93ed08ba2 "agnos 18.1.2 + raylib 6.0"). Forcing an
+  # "update" to 16 would downgrade this comma 4 onto an AGNOS that doesn't
+  # have the raylib/DRM bits this UI relies on. Pin to what's actually
+  # installed and known-good instead.
+  export AGNOS_VERSION="18.4"
 fi
 
 export STAGING_ROOT="/data/safe_staging"
